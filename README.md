@@ -101,5 +101,4 @@ The script auto-installs: `jq`, `git`, `curl`, `gh`, `glab`
 ## Requirements
 
 - Linux (Ubuntu/Debian)
-- Internet connection
 - Sudo access (for dependency installation)
