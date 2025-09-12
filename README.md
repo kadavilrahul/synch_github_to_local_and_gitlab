@@ -5,10 +5,10 @@ A simple bash script that syncs all your GitHub repositories to GitLab with loca
 ## Quick Start
 
 ```bash
-git clone https://github.com/kadavilrahul/sync_github_to_gitlab.git
+git clone https://github.com/kadavilrahul/synch_github_to_local_and_gitlab.git
 ```
 ```bash
-cd sync_github_to_gitlab
+cd synch_github_to_local_and_gitlab
 ```
 ```bash
 bash run.sh
