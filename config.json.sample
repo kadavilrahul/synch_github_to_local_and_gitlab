@@ -1,0 +1,13 @@
+{
+  "github": {
+    "username": "your-github-username",
+    "token": "ghp_your_github_personal_access_token_here"
+  },
+  "gitlab": {
+    "username": "your-gitlab-username", 
+    "token": "glpat-your_gitlab_personal_access_token_here"
+  },
+  "gitlab_api": "https://gitlab.com/api/v4",
+  "workdir": "/tmp/github-gitlab-sync",
+  "local_backup_dir": "/root/github_repos_backup"
+}

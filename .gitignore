@@ -1,0 +1,28 @@
+# Configuration file with sensitive tokens
+config.json
+
+# Local repository clones
+repos/
+
+# Log files
+sync_errors.log
+sync_success.log
+cron_sync.log
+boot_sync.log
+
+# Temporary files
+*.tmp
+
+# Lock files
+.boot_sync.lock
+*.lock
+
+# Sync tracking files
+.last_sync
+
+# Auto-generated scripts
+cron_sync.sh
+boot_sync.sh
+
+# Working directory for syncing
+workdir/
