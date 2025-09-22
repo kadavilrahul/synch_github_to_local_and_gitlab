@@ -262,10 +262,15 @@ setup_auto_sync() {
             echo "  • WSL boot sync: Enabled in ~/.bashrc"
         fi
         echo ""
-        echo -n "Do you want to remove existing auto-sync configuration(s)? [y/N]: "
+        echo -n "Do you want to remove existing auto-sync configuration(s)? [Y/n]: "
         read remove_confirm
         
-        if [ "$remove_confirm" = "y" ] || [ "$remove_confirm" = "Y" ]; then
+        # Default to "Y" if Enter is pressed
+        if [ -z "$remove_confirm" ]; then
+            remove_confirm="Y"
+        fi
+        
+        if [ "$remove_confirm" != "n" ] && [ "$remove_confirm" != "N" ]; then
             # Remove cron entries
             if [ "$has_cron" = true ]; then
                 crontab -l 2>/dev/null | grep -v "$SCRIPT_DIR/cron_sync.sh" | crontab -
@@ -311,10 +316,15 @@ setup_auto_sync() {
         echo "  • Every day at 6:00 PM"
         echo "  • On system startup (if last sync was >12 hours ago)"
         echo ""
-        echo -n "Do you want to proceed? [y/N]: "
+        echo -n "Do you want to proceed? [Y/n]: "
         read confirm
         
-        if [ "$confirm" != "y" ] && [ "$confirm" != "Y" ]; then
+        # Default to "Y" if Enter is pressed
+        if [ -z "$confirm" ]; then
+            confirm="Y"
+        fi
+        
+        if [ "$confirm" = "n" ] || [ "$confirm" = "N" ]; then
             echo "Setup cancelled."
             sleep 1
             return
@@ -670,10 +680,15 @@ perform_sync() {
     # Skip confirmation in CLI mode if running from command line
     if [ "$auto_confirm" != "true" ]; then
         echo "This will sync all your GitHub repositories."
-        echo -n "Continue? [y/N]: "
+        echo -n "Continue? [Y/n]: "
         read confirm
         
-        if [ "$confirm" != "y" ] && [ "$confirm" != "Y" ]; then
+        # Default to "Y" if Enter is pressed
+        if [ -z "$confirm" ]; then
+            confirm="Y"
+        fi
+        
+        if [ "$confirm" = "n" ] || [ "$confirm" = "N" ]; then
             echo "Sync cancelled."
             sleep 1
             return
